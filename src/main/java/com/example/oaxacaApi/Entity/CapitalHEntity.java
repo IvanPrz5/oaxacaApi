@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,10 +33,13 @@ public class CapitalHEntity {
     @Column
     private String numeroOficio;
     @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fechaInicio;
     @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fechaFin;
     @Column
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fechaPago;
     @Column
     private Double retencionIsr;
@@ -44,5 +50,6 @@ public class CapitalHEntity {
     @Column
     private Double pagar;
     @Column 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fechaCaptura;
 }
