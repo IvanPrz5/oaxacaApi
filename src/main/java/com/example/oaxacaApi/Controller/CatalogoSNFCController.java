@@ -13,12 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Entity.CatalogoSNFCEntity;
-import com.example.oaxacaApi.Entity.CatalogoStatusEntity;
-import com.example.oaxacaApi.Repository.CapitalHRepository;
 import com.example.oaxacaApi.Repository.CatalogoSNFCRepository;
-import com.example.oaxacaApi.Repository.CatalogoStatusRepository;
 
 @CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RestController
@@ -41,4 +37,5 @@ public class CatalogoSNFCController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
 }

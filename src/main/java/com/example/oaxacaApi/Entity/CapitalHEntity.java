@@ -1,6 +1,7 @@
 package com.example.oaxacaApi.Entity;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,13 +35,13 @@ public class CapitalHEntity {
     private String numeroOficio;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaInicio;
+    private Calendar fechaInicio;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaFin;
+    private Calendar fechaFin;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaPago;
+    private Calendar fechaPago;
     @Column
     private Double retencionIsr;
     @Column
@@ -51,5 +52,5 @@ public class CapitalHEntity {
     private Double pagar;
     @Column 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaCaptura;
+    private Calendar fechaCaptura;
 }
