@@ -1,6 +1,7 @@
 package com.example.oaxacaApi.Entity;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ import lombok.Setter;
 public class FinalizadoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idFinalizado;
+    private Integer id;
     @Column
     private String resultado;
     @Column 
@@ -42,7 +43,7 @@ public class FinalizadoEntity {
     private String pdf;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaFinalizado;
+    private Calendar fechaFinalizado;
     @Column 
     private String qr;
     @Column

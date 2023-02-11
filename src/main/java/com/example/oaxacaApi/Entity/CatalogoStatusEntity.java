@@ -25,7 +25,7 @@ import lombok.Setter;
 public class CatalogoStatusEntity {
     @Id
     // @GeneratedValue(strategy = GenerationType.AUTO)
-    private String idStatus;
+    private String id;
     @Column
     private String descripcion;
 }

@@ -1,6 +1,7 @@
 package com.example.oaxacaApi.Entity;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ import lombok.Setter;
 public class TimbradoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idTimbrado;
+    private Integer id;
     @Column
     private String nomina;
     @Column
@@ -38,22 +39,20 @@ public class TimbradoEntity {
     private Long totalEmpleados;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaInicio;
+    private Calendar fechaInicio;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaFin;
+    private Calendar fechaFin;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaPago;
+    private Calendar fechaPago;
     @Column
-    private String snfc;
-    @Column
-    private Long importeIsr;
+    private Double importeIsr;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fechaSubida;
+    private Calendar fechaSubida;
     @Column
-    private Long neto;
+    private Double neto;
     @Column 
     private Long numEjecuciones;
     @Column /* (length = 500) */
@@ -64,11 +63,11 @@ public class TimbradoEntity {
     private Long numero;
 
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="idCapitalHumano")
     private CapitalHEntity capitalHEntity;
 
     @ManyToOne
-    @JoinColumn(name="idSNFC")
+    @JoinColumn(name="idSnfc")
     private CatalogoSNFCEntity catalogoSNFCEntity;
 
     @ManyToOne

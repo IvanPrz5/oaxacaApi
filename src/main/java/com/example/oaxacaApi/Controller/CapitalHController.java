@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.oaxacaApi.Entity.CapitalHEntity;
+import com.example.oaxacaApi.Entity.TimbradoEntity;
 import com.example.oaxacaApi.Repository.CapitalHRepository;
 
 @CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
@@ -32,6 +32,11 @@ public class CapitalHController {
         return (List<CapitalHEntity>) capitalHRepository.findAll();
     }
     
+    @GetMapping("/{idCapitalH}")
+    public Optional<CapitalHEntity> getDataById(@PathVariable("idCapitalH") Integer idCapitalH){
+        return capitalHRepository.findById(idCapitalH);
+    }
+
     @PostMapping
     public ResponseEntity<CapitalHEntity> postData(@RequestBody CapitalHEntity data){
         try{
