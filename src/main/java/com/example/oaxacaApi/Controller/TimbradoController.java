@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Entity.TimbradoEntity;
 import com.example.oaxacaApi.Repository.TimbradoRepository;
 import com.example.oaxacaApi.Service.TimbradoServicio;
@@ -40,8 +41,8 @@ public class TimbradoController {
     }
 
     @GetMapping("/dataCapital/{idCapitalHumano}")
-    public TimbradoEntity getDataCapital(@PathVariable("idCapitalHumano") Integer idCapitalHumano){
-        return timbradoServicio.getIdCapitalHumano(idCapitalHumano).orElseThrow();
+    public TimbradoEntity getDataCapital(@PathVariable("idCapitalHumano") Integer capitalHEntity){
+        return timbradoServicio.getIdCapitalHumano(capitalHEntity).orElseThrow();
     }
 
     @PostMapping
