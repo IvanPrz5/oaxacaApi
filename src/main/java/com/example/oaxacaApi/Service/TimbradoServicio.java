@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.hibernate.id.IntegralDataTypeHolder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,13 @@ public class TimbradoServicio {
     }
 
     // @Query(value = "SELECT n FROM timbrado n WHERE n.idCapitalHumano = ?1", nativeQuery = true)
-    public Optional<TimbradoEntity> getIdCapitalHumano(Integer idCapitalHumano){
+    /* public Optional<TimbradoEntity> getIdCapitalHumano(Integer idCapitalHumano){
+        Optional <CapitalHEntity> capitalHumano = capitalHRepository.findById(idCapitalHumano);
+        CapitalHEntity capitalHumanoID = capitalHumano.get();
+        return timbradoRepository.findByCapitalHEntity(capitalHumanoID);
+    } */
+
+    public List<TimbradoEntity> getIdCapitalHumano(Integer idCapitalHumano){
         Optional <CapitalHEntity> capitalHumano = capitalHRepository.findById(idCapitalHumano);
         CapitalHEntity capitalHumanoID = capitalHumano.get();
         return timbradoRepository.findByCapitalHEntity(capitalHumanoID);

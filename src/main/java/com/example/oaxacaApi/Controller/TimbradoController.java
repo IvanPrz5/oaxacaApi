@@ -40,9 +40,14 @@ public class TimbradoController {
         return timbradoServicio.getId(id).orElseThrow();
     }
 
-    @GetMapping("/dataCapital/{idCapitalHumano}")
+    /* @GetMapping("/dataCapital/{idCapitalHumano}")
     public TimbradoEntity getDataCapital(@PathVariable("idCapitalHumano") Integer capitalHEntity){
         return timbradoServicio.getIdCapitalHumano(capitalHEntity).orElseThrow();
+    } */
+
+    @GetMapping("/dataCapital/{idCapitalHumano}")
+    public List <TimbradoEntity> getDataCapital(@PathVariable("idCapitalHumano") Integer capitalHEntity){
+        return (List<TimbradoEntity>) timbradoServicio.getIdCapitalHumano(capitalHEntity);   
     }
 
     @PostMapping

@@ -1,5 +1,7 @@
 package com.example.oaxacaApi.Repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.oaxacaApi.Entity.CapitalHEntity;
