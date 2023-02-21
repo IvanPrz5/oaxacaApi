@@ -61,6 +61,8 @@ public class TimbradoEntity {
     private String documentoContable;
     @Column
     private Long numero;
+    @Column 
+    private Boolean status;
 
     @ManyToOne
     @JoinColumn(name="idCapitalHumano")

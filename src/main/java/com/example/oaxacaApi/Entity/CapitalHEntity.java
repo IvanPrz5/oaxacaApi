@@ -52,4 +52,6 @@ public class CapitalHEntity {
     @Column 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Calendar fechaCaptura;
+    @Column 
+    private Boolean status;
 }

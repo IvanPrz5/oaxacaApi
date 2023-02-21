@@ -50,6 +50,8 @@ public class FinalizadoEntity {
     private String observaciones;
     @Column
     private String xml;
+    @Column 
+    private Boolean status;
 
     @ManyToOne
     @JoinColumn(name="idTimbrado")

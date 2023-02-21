@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Entity.TimbradoEntity;
 import com.example.oaxacaApi.Repository.CapitalHRepository;
+import com.example.oaxacaApi.Service.CapitalHService;
 
 @CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RestController
@@ -26,6 +27,8 @@ import com.example.oaxacaApi.Repository.CapitalHRepository;
 public class CapitalHController {
     @Autowired
     private CapitalHRepository capitalHRepository;
+    @Autowired
+    private CapitalHService capitalHService;
 
     @GetMapping
     public List <CapitalHEntity> getData(){
@@ -35,6 +38,11 @@ public class CapitalHController {
     @GetMapping("/{idCapitalH}")
     public Optional<CapitalHEntity> getDataById(@PathVariable("idCapitalH") Integer idCapitalH){
         return capitalHRepository.findById(idCapitalH);
+    }
+
+    @GetMapping("/dataCapital/{statusCapitalH}")
+    public List <CapitalHEntity> getDataByStatus(@PathVariable("statusCapitalH") Boolean status){
+        return (List<CapitalHEntity>) capitalHService.getDataByStatus(status); 
     }
 
     @PostMapping
@@ -63,7 +71,20 @@ public class CapitalHController {
             capitalH.setAjusteIsr(capitalHEntity.getAjusteIsr());
             capitalH.setSubsidioAjuste(capitalHEntity.getSubsidioAjuste());
             capitalH.setPagar(capitalHEntity.getPagar());
-            // capitalH.setConcepto(capitalHEntity.getConcepto());
+            capitalH.setStatus(capitalHEntity.getStatus());
+            return new ResponseEntity<>(capitalHRepository.save((capitalH)), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/statusCapital/{idCapitalH}")
+    public ResponseEntity <CapitalHEntity> updatingRegistro2(@PathVariable("idCapitalH") Integer idCapitalH, @RequestBody CapitalHEntity capitalHEntity){
+        Optional<CapitalHEntity> capitalHData = capitalHRepository.findById(idCapitalH);
+
+        if(capitalHData.isPresent()){
+            CapitalHEntity capitalH = capitalHData.get();
+            capitalH.setStatus(capitalHEntity.getStatus());
             return new ResponseEntity<>(capitalHRepository.save((capitalH)), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
