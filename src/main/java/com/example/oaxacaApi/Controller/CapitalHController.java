@@ -79,7 +79,7 @@ public class CapitalHController {
     }
 
     @PutMapping("/statusCapital/{idCapitalH}")
-    public ResponseEntity <CapitalHEntity> updatingRegistro2(@PathVariable("idCapitalH") Integer idCapitalH, @RequestBody CapitalHEntity capitalHEntity){
+    public ResponseEntity <CapitalHEntity> updatingStatus(@PathVariable("idCapitalH") Integer idCapitalH, @RequestBody CapitalHEntity capitalHEntity){
         Optional<CapitalHEntity> capitalHData = capitalHRepository.findById(idCapitalH);
 
         if(capitalHData.isPresent()){

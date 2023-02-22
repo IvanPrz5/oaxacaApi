@@ -2,13 +2,8 @@ package com.example.oaxacaApi.Service;
 
 import java.util.Optional;
 
-import org.hibernate.id.IntegralDataTypeHolder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Entity.TimbradoEntity;
@@ -29,16 +24,22 @@ public class TimbradoServicio {
         return timbradoRepository.findById(id);
     }
 
-    // @Query(value = "SELECT n FROM timbrado n WHERE n.idCapitalHumano = ?1", nativeQuery = true)
-    /* public Optional<TimbradoEntity> getIdCapitalHumano(Integer idCapitalHumano){
-        Optional <CapitalHEntity> capitalHumano = capitalHRepository.findById(idCapitalHumano);
+    /* public List<TimbradoEntity> getIdCapitalHumano(Integer idCapitalHumano){
+        Optional<CapitalHEntity> capitalHumano = capitalHRepository.findById(idCapitalHumano);
         CapitalHEntity capitalHumanoID = capitalHumano.get();
         return timbradoRepository.findByCapitalHEntity(capitalHumanoID);
+    }
+
+    public List<TimbradoEntity> getDataByStatus(Boolean status){
+        List<TimbradoEntity> timbrado = timbradoRepository.findDataByStatus(status);
+        return timbrado;
     } */
 
-    public List<TimbradoEntity> getIdCapitalHumano(Integer idCapitalHumano){
-        Optional <CapitalHEntity> capitalHumano = capitalHRepository.findById(idCapitalHumano);
+    public List<TimbradoEntity> getByIdCapitalHumanoAndStatus(Integer idCapitalHumano, Boolean status){
+        Optional<CapitalHEntity> capitalHumano = capitalHRepository.findById(idCapitalHumano);
         CapitalHEntity capitalHumanoID = capitalHumano.get();
-        return timbradoRepository.findByCapitalHEntity(capitalHumanoID);
+        List<TimbradoEntity> timbrado = timbradoRepository.findDataByStatus(status);      
+        Boolean statusBoolean = timbrado.add(null);
+        return timbradoRepository.findDataByCapitalHEntityAndStatus(capitalHumanoID, statusBoolean);
     }
 }

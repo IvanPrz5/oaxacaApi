@@ -1,6 +1,5 @@
 package com.example.oaxacaApi.Entity;
 
-import java.sql.Date;
 import java.util.Calendar;
 
 import javax.persistence.Column;
