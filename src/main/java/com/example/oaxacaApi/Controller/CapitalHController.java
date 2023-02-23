@@ -1,5 +1,11 @@
 package com.example.oaxacaApi.Controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +49,12 @@ public class CapitalHController {
     @GetMapping("/dataCapital/{statusCapitalH}")
     public List <CapitalHEntity> getDataByStatus(@PathVariable("statusCapitalH") Boolean status){
         return (List<CapitalHEntity>) capitalHService.getDataByStatus(status); 
+    }
+
+    // Consulta Fecha
+    @GetMapping("/fechaCapital/{fechaPago}")
+    public List <CapitalHEntity> getDataByFecha(@PathVariable("fechaPago") String fechaPago){
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaPago(fechaPago);
     }
 
     @PostMapping
