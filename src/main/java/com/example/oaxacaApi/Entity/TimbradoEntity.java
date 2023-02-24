@@ -1,6 +1,7 @@
 package com.example.oaxacaApi.Entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -39,18 +40,18 @@ public class TimbradoEntity {
     private Long totalEmpleados;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Calendar fechaInicio;
+    private LocalDate fechaInicio;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Calendar fechaFin;
+    private LocalDate fechaFin;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Calendar fechaPago;
+    private LocalDate fechaPago;
     @Column
     private Double importeIsr;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Calendar fechaSubida;
+    private LocalDate fechaSubida;
     @Column
     private Double neto;
     @Column 

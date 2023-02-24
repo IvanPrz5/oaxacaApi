@@ -1,11 +1,6 @@
 package com.example.oaxacaApi.Controller;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.oaxacaApi.Entity.CapitalHEntity;
-import com.example.oaxacaApi.Entity.TimbradoEntity;
 import com.example.oaxacaApi.Repository.CapitalHRepository;
 import com.example.oaxacaApi.Service.CapitalHService;
 
@@ -51,12 +45,28 @@ public class CapitalHController {
         return (List<CapitalHEntity>) capitalHService.getDataByStatus(status); 
     }
 
-    // Consulta Fecha
-    @GetMapping("/fechaCapital/{fechaPago}")
-    public List <CapitalHEntity> getDataByFecha(@PathVariable("fechaPago") String fechaPago){
+    //Consutal Fecha
+    /* @GetMapping("/fechaCapital/{fechaInicio}")
+    public List <CapitalHEntity> getDataByFechaInicio(@PathVariable("fechaInicio") String fechaInicio) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaPago(fechaInicio);
+    }
+ */
+
+
+    // Consulta Fecha Pago
+    @GetMapping("/fechasCapital/{fechaPago}")
+    public List <CapitalHEntity> getDataByFechaPago(@PathVariable("fechaPago") String fechaPago) throws ParseException{
         return (List<CapitalHEntity>) capitalHService.getDataByFechaPago(fechaPago);
     }
 
+
+    /* Fecha Inicio - Fecha Fin */
+    /* @GetMapping("/fechasCapital/{fechaInicio}/{fechaFin}")
+    public List <CapitalHEntity> getDataByFechaInicioAndFechaFin(@PathVariable("fechaInicio") String fechaInicio, @PathVariable("fechaFin") String fechaFin) throws ParseException {
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaInicioAndFechaFin(fechaInicio, fechaFin);
+    } */
+
+    /* */
     @PostMapping
     public ResponseEntity<CapitalHEntity> postData(@RequestBody CapitalHEntity data){
         try{

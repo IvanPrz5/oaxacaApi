@@ -1,5 +1,6 @@
 package com.example.oaxacaApi.Entity;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -42,7 +43,7 @@ public class FinalizadoEntity {
     private String pdf;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Calendar fechaFinalizado;
+    private LocalDate fechaFinalizado;
     @Column 
     private String qr;
     @Column
