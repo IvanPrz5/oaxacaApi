@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Repository.CapitalHRepository;
 
-import net.bytebuddy.asm.Advice.Local;
-
 @Service
 public class CapitalHService {
     @Autowired
@@ -23,24 +21,52 @@ public class CapitalHService {
         return capitalHumano;
     }
 
-    /* public List<CapitalHEntity> geyDataByFechaInicio(String fechaInicio) throws ParseException {
+    public List<CapitalHEntity> getDataByFechaInicio(String fechaDesde, String fechaHasta) throws ParseException {
+        LocalDate fechaDesdeLD = LocalDate.parse(fechaDesde);
+        LocalDate fechaHastaLD = LocalDate.parse(fechaHasta);
+        List<CapitalHEntity> capitalHumano = capitalHRepository.findByFechaInicioBetween(fechaDesdeLD, fechaHastaLD);
+        return capitalHumano;
+    }
+
+    public List<CapitalHEntity> getDataByFechaFin(String fechaDesde, String fechaHasta) throws ParseException {
+        LocalDate fechaDesdeLD = LocalDate.parse(fechaDesde);
+        LocalDate fechaHastaLD = LocalDate.parse(fechaHasta);
+        List<CapitalHEntity> capitalHumano = capitalHRepository.findByFechaFinBetween(fechaDesdeLD, fechaHastaLD);
+        return capitalHumano;
+    }
+
+    public List<CapitalHEntity> getDataByFechaPago(String fechaDesde, String fechaHasta) throws ParseException {
+        LocalDate fechaDesdeLD = LocalDate.parse(fechaDesde);
+        LocalDate fechaHastaLD = LocalDate.parse(fechaHasta);
+        List<CapitalHEntity> capitalHumano = capitalHRepository.findByFechaPagoBetween(fechaDesdeLD, fechaHastaLD);
+        return capitalHumano;
+    }
+
+
+   /*  public List<CapitalHEntity> getDataByBetweenFechaInicio(String fechaDesde, String fechaHasta) throws ParseException {
+        LocalDate fechaDesdeLD = LocalDate.parse(fechaDesde);
+        LocalDate fechaHastaLD = LocalDate.parse(fechaHasta);
+        List<CapitalHEntity> capitalHumano = capitalHRepository.findByFechaInicio(fechaDesdeLD, fechaHastaLD);
+        return capitalHumano;
+    } */
+
+    /* public List<CapitalHEntity> getDataByFechaInicio(String fechaInicio) throws ParseException {
         LocalDate fechaInicioLD = LocalDate.parse(fechaInicio);
         List<CapitalHEntity> capitalHumano = capitalHRepository.findByFechaInicio(fechaInicioLD);
         return capitalHumano;
     }
 
-    public List<CapitalHEntity> geyDataByFechaFin(String fechaFin) throws ParseException {
+    public List<CapitalHEntity> getDataByFechaFin(String fechaFin) throws ParseException {
         LocalDate fechaFinLD = LocalDate.parse(fechaFin);
         List<CapitalHEntity> capitalHumano = capitalHRepository.findByFechaFin(fechaFinLD);
         return capitalHumano;
-    } */
+    }
 
     public List<CapitalHEntity> getDataByFechaPago(String fechaPago) throws ParseException {        
         LocalDate fechaPagoLD = LocalDate.parse(fechaPago);
         List<CapitalHEntity> capitalHumano = capitalHRepository.findByFechaPago(fechaPagoLD);
         return capitalHumano;
-    }
-
+    } */
 
     /* public List<CapitalHEntity> getDataByFechaInicioAndFechaFin(String fechaInicio, String fechaFin) throws ParseException {
         LocalDate fechaInicioLD = LocalDate.parse(fechaInicio);

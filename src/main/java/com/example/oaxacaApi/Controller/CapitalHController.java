@@ -45,28 +45,21 @@ public class CapitalHController {
         return (List<CapitalHEntity>) capitalHService.getDataByStatus(status); 
     }
 
-    //Consutal Fecha
-    /* @GetMapping("/fechaCapital/{fechaInicio}")
-    public List <CapitalHEntity> getDataByFechaInicio(@PathVariable("fechaInicio") String fechaInicio) throws ParseException{
-        return (List<CapitalHEntity>) capitalHService.getDataByFechaPago(fechaInicio);
-    }
- */
-
-
-    // Consulta Fecha Pago
-    @GetMapping("/fechasCapital/{fechaPago}")
-    public List <CapitalHEntity> getDataByFechaPago(@PathVariable("fechaPago") String fechaPago) throws ParseException{
-        return (List<CapitalHEntity>) capitalHService.getDataByFechaPago(fechaPago);
+    @GetMapping("/fechasInicio/{fechaDesde}/{fechaHasta}")
+    public List <CapitalHEntity> getDataByFechaInicio(@PathVariable("fechaDesde") String fechaDesde, @PathVariable("fechaHasta") String fechaHasta) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaInicio(fechaDesde, fechaHasta);
     }
 
+    @GetMapping("/fechasFin/{fechaDesde}/{fechaHasta}")
+    public List <CapitalHEntity> getDataByFechaFin(@PathVariable("fechaDesde") String fechaDesde, @PathVariable("fechaHasta") String fechaHasta) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaFin(fechaDesde, fechaHasta);
+    }
+    
+    @GetMapping("/fechasPago/{fechaDesde}/{fechaHasta}")
+    public List <CapitalHEntity> getDataByFechaPago(@PathVariable("fechaDesde") String fechaDesde, @PathVariable("fechaHasta") String fechaHasta) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaPago(fechaDesde, fechaHasta);
+    }
 
-    /* Fecha Inicio - Fecha Fin */
-    /* @GetMapping("/fechasCapital/{fechaInicio}/{fechaFin}")
-    public List <CapitalHEntity> getDataByFechaInicioAndFechaFin(@PathVariable("fechaInicio") String fechaInicio, @PathVariable("fechaFin") String fechaFin) throws ParseException {
-        return (List<CapitalHEntity>) capitalHService.getDataByFechaInicioAndFechaFin(fechaInicio, fechaFin);
-    } */
-
-    /* */
     @PostMapping
     public ResponseEntity<CapitalHEntity> postData(@RequestBody CapitalHEntity data){
         try{
@@ -112,6 +105,38 @@ public class CapitalHController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+
+
+    //Consutal Fecha
+    /* @GetMapping("/fechasInicio/{fechaInicio}")
+    public List <CapitalHEntity> getDataByFechaInicio(@PathVariable("fechaInicio") String fechaInicio) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaInicio(fechaInicio);
+    }
+
+    @GetMapping("/fechasFin/{fechaFin}")
+    public List <CapitalHEntity> getDataByFechaFin(@PathVariable("fechaFin") String fechaFin) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaFin(fechaFin);
+    }
+
+    // Consulta Fecha Pago
+    @GetMapping("/fechasPago/{fechaPago}")
+    public List <CapitalHEntity> getDataByFechaPago(@PathVariable("fechaPago") String fechaPago) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaPago(fechaPago);
+    } */
+
+    /* @GetMapping("/rangoFechas/{fechaDesde}/{fechaHasta}")
+    public List<CapitalHEntity> getDataByRangosFechaInicio(@PathVariable("fechaInicio") String fechaDesde, @PathVariable("fechaInicio") String fechaHasta) throws ParseException{
+        return (List<CapitalHEntity>) capitalHService.getDataByBetweenFechaInicio(fechaDesde, fechaHasta);
+    } */
+
+
+    /* Fecha Inicio - Fecha Fin */
+    /* @GetMapping("/fechasCapital/{fechaInicio}/{fechaFin}")
+    public List <CapitalHEntity> getDataByFechaInicioAndFechaFin(@PathVariable("fechaInicio") String fechaInicio, @PathVariable("fechaFin") String fechaFin) throws ParseException {
+        return (List<CapitalHEntity>) capitalHService.getDataByFechaInicioAndFechaFin(fechaInicio, fechaFin);
+    } */
+
+    /* */
 
     /* @DeleteMapping("/{idCapitalH}")
     public ResponseEntity<HttpStatus> deleteRegistro(@PathVariable("idCapitalH") Integer idCapitalH){
