@@ -16,7 +16,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
+import net.bytebuddy.utility.nullability.NeverNull;
 
 @Entity
 @Getter

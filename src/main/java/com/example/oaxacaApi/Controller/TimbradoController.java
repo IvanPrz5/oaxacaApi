@@ -90,6 +90,8 @@ public class TimbradoController {
             tEntity.setDocumentoContable(timbradoEntity.getDocumentoContable());
             tEntity.setNumero(timbradoEntity.getNumero());
             tEntity.setStatus(timbradoEntity.getStatus());
+            tEntity.setCatalogoSNFCEntity(timbradoEntity.getCatalogoSNFCEntity());
+            tEntity.setCatalogoStatusEntity(timbradoEntity.getCatalogoStatusEntity());
             return new ResponseEntity<>(timbradoRepository.save(tEntity), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
