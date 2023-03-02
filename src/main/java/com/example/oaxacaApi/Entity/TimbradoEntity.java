@@ -64,7 +64,7 @@ public class TimbradoEntity {
     private Long numero;
     @Column 
     private Boolean status;
-
+    
     @ManyToOne
     @JoinColumn(name="idCapitalHumano")
     private CapitalHEntity capitalHEntity;
