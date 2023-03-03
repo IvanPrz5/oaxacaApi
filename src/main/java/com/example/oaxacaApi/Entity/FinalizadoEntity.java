@@ -32,24 +32,24 @@ public class FinalizadoEntity {
     @Column
     private String resultado;
     @Column 
-    private String exito;
+    private Long exito;
     @Column
-    private String fallidos;
+    private Long fallidos;
     @Column
-    private String isrTimbrado;
+    private Double isrTimbrado;
     @Column
     private String urlDescarga;
     @Column
-    private String pdf;
+    private Long pdf;
     @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaFinalizado;
     @Column 
-    private String qr;
+    private Long qr;
     @Column
     private String observaciones;
     @Column
-    private String xml;
+    private Long xml;
     @Column 
     private Boolean status;
 

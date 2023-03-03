@@ -9,6 +9,7 @@ import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Entity.TimbradoEntity;
 import com.example.oaxacaApi.Repository.CapitalHRepository;
 import com.example.oaxacaApi.Repository.TimbradoRepository;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -35,11 +36,12 @@ public class TimbradoServicio {
         return timbrado;
     } */
 
-    public List<TimbradoEntity> getByIdCapitalHumanoAndStatus(Integer idCapitalHumano, Boolean status){
+    public List<TimbradoEntity> getByIdCapitalHumanoAndStatus(Integer idCapitalHumano, Boolean status, Sort sort){
         Optional<CapitalHEntity> capitalHumano = capitalHRepository.findById(idCapitalHumano);
         CapitalHEntity capitalHumanoID = capitalHumano.get();
         List<TimbradoEntity> timbrado = timbradoRepository.findDataByStatus(status);      
         Boolean statusBoolean = timbrado.add(null);
-        return timbradoRepository.findDataByCapitalHEntityAndStatus(capitalHumanoID, statusBoolean);
+        sort = Sort.by("id");
+        return timbradoRepository.findDataByCapitalHEntityAndStatus(capitalHumanoID, statusBoolean, sort);
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Sort;
 
 import com.example.oaxacaApi.Entity.FinalizadoEntity;
 import com.example.oaxacaApi.Entity.TimbradoEntity;
@@ -45,8 +46,8 @@ public class FinalizadoController {
     }
 
     @GetMapping("/dataFinalizado/{idTimbrado}/{statusFinalizado}")
-    public List<FinalizadoEntity> getDataByIdTimbradoAndStatus(@PathVariable("idTimbrado") Integer timbradoEntity, @PathVariable("statusFinalizado") Boolean status) {
-        return (List<FinalizadoEntity>) finalizadoService.getByIdTimbradoAndStatus(timbradoEntity, status);
+    public List<FinalizadoEntity> getDataByIdTimbradoAndStatus(@PathVariable("idTimbrado") Integer timbradoEntity, @PathVariable("statusFinalizado") Boolean status, Sort sort) {
+        return (List<FinalizadoEntity>) finalizadoService.getByIdTimbradoAndStatus(timbradoEntity, status, sort);
     }
 
     @PostMapping

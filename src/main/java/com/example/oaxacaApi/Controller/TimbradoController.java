@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Sort;
+
 
 import com.example.oaxacaApi.Entity.TimbradoEntity;
 import com.example.oaxacaApi.Repository.TimbradoRepository;
@@ -39,24 +41,9 @@ public class TimbradoController {
         return timbradoServicio.getId(id).orElseThrow();
     }
 
-    /*
-     * @GetMapping("/dataCapital/{idCapitalHumano}")
-     * public List <TimbradoEntity> getDataCapital(@PathVariable("idCapitalHumano")
-     * Integer capitalHEntity){
-     * return (List<TimbradoEntity>)
-     * timbradoServicio.getIdCapitalHumano(capitalHEntity);
-     * }
-     * 
-     * @GetMapping("/dataTimbrado/{statusTimbrado}")
-     * public List <TimbradoEntity> getDataByStatus(@PathVariable("statusTimbrado")
-     * Boolean status){
-     * return (List<TimbradoEntity>) timbradoServicio.getDataByStatus(status);
-     * }
-     */
-
     @GetMapping("/dataTimbrado/{idCapitalHumano}/{statusTimbrado}")
-    public List<TimbradoEntity> getDataByIdCapitalHumanoAndStatus(@PathVariable("idCapitalHumano") Integer capitalHEntity, @PathVariable("statusTimbrado") Boolean status) {
-        return (List<TimbradoEntity>) timbradoServicio.getByIdCapitalHumanoAndStatus(capitalHEntity, status);
+    public List<TimbradoEntity> getDataByIdCapitalHumanoAndStatus(@PathVariable("idCapitalHumano") Integer capitalHEntity, @PathVariable("statusTimbrado") Boolean status, Sort sort) {
+        return (List<TimbradoEntity>) timbradoServicio.getByIdCapitalHumanoAndStatus(capitalHEntity, status, sort);
     }
 
     @PostMapping
