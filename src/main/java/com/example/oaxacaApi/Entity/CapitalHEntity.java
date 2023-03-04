@@ -1,9 +1,6 @@
 package com.example.oaxacaApi.Entity;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,9 +13,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
-import net.bytebuddy.utility.nullability.NeverNull;
 
 @Entity
 @Getter

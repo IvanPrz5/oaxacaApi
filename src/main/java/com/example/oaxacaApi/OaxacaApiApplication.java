@@ -9,4 +9,5 @@ public class OaxacaApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OaxacaApiApplication.class, args);
 	}
+
 }

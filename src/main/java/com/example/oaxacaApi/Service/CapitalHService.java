@@ -3,30 +3,10 @@ package com.example.oaxacaApi.Service;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-import javax.management.RuntimeErrorException;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.nio.charset.MalformedInputException;
-import java.nio.file.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.UrlResource;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Repository.CapitalHRepository;
 

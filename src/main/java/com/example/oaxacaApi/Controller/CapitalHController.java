@@ -1,19 +1,10 @@
 package com.example.oaxacaApi.Controller;
 
-import java.io.IOException;
-import java.net.http.HttpHeaders;
-import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
-import javax.annotation.Resource;
-import javax.servlet.Servlet;
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoProperties.Storage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,22 +15,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.oaxacaApi.Entity.CapitalHEntity;
 import com.example.oaxacaApi.Repository.CapitalHRepository;
 import com.example.oaxacaApi.Service.CapitalHService;
 
-import lombok.AllArgsConstructor;
-
 import org.springframework.data.domain.Sort;
 @CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RestController
 @RequestMapping("/CapitalHumano")
-@AllArgsConstructor
 public class CapitalHController {
     @Autowired
     private CapitalHRepository capitalHRepository;
